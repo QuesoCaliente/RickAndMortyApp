@@ -32,7 +32,6 @@ export default function Home() {
   };
 
   const handleFilter = () => {
-    console.log(`Status: ${status} - Search ${search} - Gender: ${gender}`);
     if (search === "" && status === "all" && gender === "all") {
       getAllCharacters();
     } else {

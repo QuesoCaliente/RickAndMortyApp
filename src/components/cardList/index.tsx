@@ -9,9 +9,10 @@ interface ICardList {
 export default function CardList({ characters }: ICardList) {
   return (
     <div className={styles.grid}>
-      {characters.map((character) => {
-        return <Card key={character.name} {...character} />;
-      })}
+      {characters &&
+        characters.map((character) => {
+          return <Card key={character.name} {...character} />;
+        })}
     </div>
   );
 }
