@@ -1,0 +1,30 @@
+.circle_alive {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #00ff00;
+    margin-right: 5px;
+}
+.circle_death {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ff0000;
+    margin-right: 5px;
+}
+
+.text {
+    font-size: 1.5rem;
+    color: #CBEDD5;
+    font-weight: 600;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #62B6B7;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+}

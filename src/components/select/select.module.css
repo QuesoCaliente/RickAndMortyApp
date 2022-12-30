@@ -1,0 +1,19 @@
+.select {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    outline: none;
+    width: 300px;
+    padding-inline-start: 1rem;
+    padding-inline-end: 1rem;
+    padding-block-start: 0.5rem;
+    padding-block-end: 0.5rem;
+    box-shadow:  0 0 0.5rem rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 640px) {
+    .select {
+        width: 100%;
+        margin: 0 10px;
+    }
+}

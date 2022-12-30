@@ -1,12 +1,9 @@
-import { useState } from "react";
-import Header from "@components/header";
+import Home from "@pages/home";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>App</h1>
+      <Home />
     </>
   );
 }

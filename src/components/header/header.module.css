@@ -1,13 +1,15 @@
 .header {
     background-color: var(--colors-primary);
+    min-height: 60px;
 }
 .menu {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     color: #fff;
     height: 60px;
     margin: 0 auto;
+    font-size: 20px;
 }
 .menu ul {
     display: flex;
@@ -19,3 +21,24 @@
     margin: 0 10px;
 }
 
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+.logo {
+    position: relative;
+    top: 25px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .menu {
+        justify-content: center;
+    }
+}
+    
+.link {
+    text-decoration: none;
+    color: #CBEDD5;
+}
