@@ -12,6 +12,7 @@ export default function Home() {
   const [search, setSearch] = useState("all");
   const [status, setStatus] = useState("all");
   const [gender, setGender] = useState("all");
+  const [errors, setErrors] = useState<string | null>(null);
 
   useEffect(() => {
     getAllCharacters();
@@ -26,6 +27,7 @@ export default function Home() {
   const filterCharacters = () => {
     getApiCharactersByNameStatusGender(search, status, gender).then(
       (response) => {
+        response.error && setErrors(response.error);
         setCharacters(response.results);
       }
     );
@@ -56,6 +58,9 @@ export default function Home() {
         />
       </div>
       <CardList characters={characters} />
+      {errors && (
+        <p className={styles.error}>⚠ No se han encontrado resultados</p>
+      )}
     </main>
   );
 }

@@ -13,6 +13,17 @@
     gap: 20px;
     justify-content: flex-start;
 }
+.error {
+    color: #CBEDD5;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #62B6B7;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 @media screen and (max-width: 640px) {
