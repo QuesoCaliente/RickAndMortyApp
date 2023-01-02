@@ -14,27 +14,32 @@ export default function Home() {
   const [status, setStatus] = useState("all");
   const [gender, setGender] = useState("all");
   const [errors, setErrors] = useState<string | null>(null);
+  const [isLoading, setisLoading] = useState(
+    characters?.length === 0 && !errors
+  );
 
   useEffect(() => {
     getAllCharacters();
   }, []);
 
   const getAllCharacters = () => {
+    setisLoading(true);
     getApiCharacters(1).then((response) => {
+      setisLoading(false);
       setCharacters(response.results);
     });
   };
 
   const filterCharacters = () => {
+    setisLoading(true);
     getApiCharactersByNameStatusGender(search, status, gender).then(
       (response) => {
         response.error && setErrors(response.error);
         setCharacters(response.results);
+        setisLoading(false);
       }
     );
   };
-
-  const isLoading = characters?.length === 0 && !errors;
 
   const handleFilter = () => {
     setErrors(null);
