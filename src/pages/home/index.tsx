@@ -6,6 +6,7 @@ import { GENDER_OPTIONS, STATUS_OPTIONS } from "./const";
 import { useEffect, useState } from "react";
 import { getApiCharacters } from "../../api/characters";
 import { getApiCharactersByNameStatusGender } from "../../api/characters/index";
+import Loading from "@components/loading";
 
 export default function Home() {
   const [characters, setCharacters] = useState([]);
@@ -33,7 +34,10 @@ export default function Home() {
     );
   };
 
+  const isLoading = characters?.length === 0 && !errors;
+
   const handleFilter = () => {
+    setErrors(null);
     if (search === "" && status === "all" && gender === "all") {
       getAllCharacters();
     } else {
@@ -57,6 +61,7 @@ export default function Home() {
           options={GENDER_OPTIONS}
         />
       </div>
+      {isLoading && <Loading />}
       <CardList characters={characters} />
       {errors && (
         <p className={styles.error}>⚠ No se han encontrado resultados</p>
