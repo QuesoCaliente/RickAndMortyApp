@@ -13,8 +13,13 @@ export default function Search({ onSearch, onClick = () => {} }: ISearch) {
     onSearch(value);
   }, [value]);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    onClick();
+  };
+
   return (
-    <div className={styles.search_container}>
+    <form className={styles.search_container} onSubmit={handleSubmit}>
       <input
         value={value}
         onChange={(e) => setValue(e.target.value)}
@@ -22,9 +27,9 @@ export default function Search({ onSearch, onClick = () => {} }: ISearch) {
         placeholder="nombre del personaje..."
         className={styles.search}
       />
-      <button onClick={() => onClick()} className={styles.button}>
+      <button type="submit" className={styles.button}>
         Buscar
       </button>
-    </div>
+    </form>
   );
 }
