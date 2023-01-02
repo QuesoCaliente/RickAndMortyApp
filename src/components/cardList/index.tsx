@@ -11,7 +11,7 @@ export default function CardList({ characters }: ICardList) {
     <div className={styles.grid}>
       {characters &&
         characters.map((character) => {
-          return <Card key={character.name} {...character} />;
+          return <Card key={character.id} {...character} />;
         })}
     </div>
   );

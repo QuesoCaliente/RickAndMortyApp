@@ -14,10 +14,18 @@ export const getApiCharactersByNameStatusGender = async (
   gender: string
 ) => {
   try {
-    const queryStatus = status !== "all" ? `&status=${status}` : "";
-    const queryGender = gender !== "all" ? `&gender=${gender}` : "";
+    const helperStatus = name !== "" ? "&" : "?";
+    const helperGender = status !== "all" ? "&" : "?";
+    const queryStatus =
+      status !== "all" ? `${helperStatus}status=${status}` : "";
+    const queryGender =
+      gender !== "all" ? `${helperGender}gender=${gender}` : "";
+    const querySearch = name !== "" ? `?name=${name}` : "";
     const response = await fetch(
-      `https://rickandmortyapi.com/api/character/?name=${name}${queryStatus}${queryGender}`
+      `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}`
+    );
+    console.log(
+      `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}`
     );
     const data = await response.json();
     return data;
