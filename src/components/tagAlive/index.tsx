@@ -6,6 +6,12 @@ interface TagAlive {
 }
 
 export default function TagAlive({ alive }: TagAlive) {
+  const translate = {
+    Alive: "Vivo",
+    Dead: "Muerto",
+    unknown: "Desconocido",
+  };
+
   return (
     <div className={styles.container}>
       <div
@@ -13,7 +19,7 @@ export default function TagAlive({ alive }: TagAlive) {
           alive === "Alive" ? styles.circle_alive : styles.circle_death
         }
       ></div>
-      <span className={styles.text}>{alive}</span>
+      <span className={styles.text}>{translate[alive]}</span>
     </div>
   );
 }

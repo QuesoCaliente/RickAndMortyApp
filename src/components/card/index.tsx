@@ -10,6 +10,13 @@ interface ICard {
 }
 
 export default function Card({ image, name, gender, status }: ICard) {
+  const genderTranslate = {
+    Female: "Femenino",
+    Male: "Masculino",
+    Genderless: "Sin genero",
+    unknown: "Desconocido",
+  };
+
   return (
     <article className={styles.card}>
       <img src={image} alt={name} />
@@ -22,7 +29,7 @@ export default function Card({ image, name, gender, status }: ICard) {
           </div>
           <div className={styles.card_item}>
             <span className={styles.card_text}>Genero:</span>
-            <span className={styles.card_text}>{gender}</span>
+            <span className={styles.card_text}>{genderTranslate[gender]}</span>
           </div>
         </div>
       </div>
