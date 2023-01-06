@@ -1,5 +1,5 @@
-import styles from "./header.module.css";
-import logo from "@assets/logo.png";
+import styles from './header.module.css';
+import logo from '@assets/logo.png';
 
 export default function Header() {
   return (
@@ -18,7 +18,7 @@ export default function Header() {
   );
 }
 
-const MenuItem = ({ label, to = "#" }: { label: string; to?: string }) => {
+const MenuItem = ({ label, to = '#' }: { label: string; to?: string }) => {
   return (
     <li>
       <a className={styles.link} href={to}>

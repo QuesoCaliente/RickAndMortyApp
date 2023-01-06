@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "style:write": "prettier --write **/*.{json,svg,js,jsx,ts,tsx,md,css}",
+    "lint": "eslint src & prettier --check . *.{json,svg,js,jsx,ts,tsx,md,css}"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -20,7 +22,9 @@
     "@typescript-eslint/parser": "^5.48.0",
     "@vitejs/plugin-react": "^3.0.0",
     "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-react": "^7.31.11",
+    "prettier": "2.8.1",
     "typescript": "^4.9.3",
     "vite": "^4.0.0"
   }

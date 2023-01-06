@@ -1,19 +1,19 @@
-import TagAlive from "@components/tagAlive";
-import styles from "./characterCard.module.css";
+import TagAlive from '@components/tagAlive';
+import styles from './characterCard.module.css';
 
 interface ICard {
   image: string;
   name: string;
-  gender: "Female" | "Male" | "Genderless" | "unknown";
-  status: "Alive" | "Dead" | "unknown";
+  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
+  status: 'Alive' | 'Dead' | 'unknown';
 }
 
 export default function CharacterCard({ image, name, gender, status }: ICard) {
   const genderTranslate = {
-    Female: "Femenino",
-    Male: "Masculino",
-    Genderless: "Sin genero",
-    unknown: "Desconocido",
+    Female: 'Femenino',
+    Male: 'Masculino',
+    Genderless: 'Sin genero',
+    unknown: 'Desconocido',
   };
 
   return (

@@ -1,29 +1,29 @@
 .circle_alive {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #00ff00;
-    margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #00ff00;
+  margin-right: 5px;
 }
 .circle_death {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: #ff0000;
-    margin-right: 5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ff0000;
+  margin-right: 5px;
 }
 
 .text {
-    font-size: 1.2rem;
-    color: #CBEDD5;
-    font-weight: 600;
+  font-size: 1.2rem;
+  color: #cbedd5;
+  font-weight: 600;
 }
 
 .container {
-    display: flex;
-    align-items: center;
-    background-color: #62B6B7;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #62b6b7;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 20px;
 }

@@ -5,7 +5,9 @@ export const getApiCharacters = async (page: number) => {
     );
     const data = await response.json();
     return data;
-  } catch (error) {}
+  } catch (error) {
+    return;
+  }
 };
 
 export const getApiCharactersByNameStatusGender = async (
@@ -14,13 +16,13 @@ export const getApiCharactersByNameStatusGender = async (
   gender: string
 ) => {
   try {
-    const helperStatus = name !== "" ? "&" : "?";
-    const helperGender = status !== "all" ? "&" : "?";
+    const helperStatus = name !== '' ? '&' : '?';
+    const helperGender = status !== 'all' ? '&' : '?';
     const queryStatus =
-      status !== "all" ? `${helperStatus}status=${status}` : "";
+      status !== 'all' ? `${helperStatus}status=${status}` : '';
     const queryGender =
-      gender !== "all" ? `${helperGender}gender=${gender}` : "";
-    const querySearch = name !== "" ? `?name=${name}` : "";
+      gender !== 'all' ? `${helperGender}gender=${gender}` : '';
+    const querySearch = name !== '' ? `?name=${name}` : '';
     const response = await fetch(
       `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}`
     );
@@ -29,5 +31,7 @@ export const getApiCharactersByNameStatusGender = async (
     );
     const data = await response.json();
     return data;
-  } catch (error) {}
+  } catch (error) {
+    return;
+  }
 };
