@@ -1,6 +1,5 @@
 import TagAlive from "@components/tagAlive";
-import React from "react";
-import styles from "./card.module.css";
+import styles from "./characterCard.module.css";
 
 interface ICard {
   image: string;
@@ -9,7 +8,7 @@ interface ICard {
   status: "Alive" | "Dead" | "unknown";
 }
 
-export default function Card({ image, name, gender, status }: ICard) {
+export default function CharacterCard({ image, name, gender, status }: ICard) {
   const genderTranslate = {
     Female: "Femenino",
     Male: "Masculino",

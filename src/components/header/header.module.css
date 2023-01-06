@@ -35,6 +35,10 @@
 @media screen and (max-width: 768px) {
     .menu {
         justify-content: center;
+        height: auto;
+    }
+    .logo {
+        position: initial;
     }
 }
     

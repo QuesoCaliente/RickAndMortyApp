@@ -1,11 +1,11 @@
 import styles from "./home.module.css";
-import CardList from "../../components/cardList/index";
+import CharacterList from "@components/characterList";
 import Search from "@components/search";
-import Select from "../../components/select/index";
+import Select from "@components/select";
 import { GENDER_OPTIONS, STATUS_OPTIONS } from "./const";
 import { useEffect, useState } from "react";
-import { getApiCharacters } from "../../api/characters";
-import { getApiCharactersByNameStatusGender } from "../../api/characters/index";
+import { getApiCharacters } from "@api/characters";
+import { getApiCharactersByNameStatusGender } from "@api/characters";
 import Loading from "@components/loading";
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
         />
       </div>
       {isLoading && <Loading />}
-      <CardList characters={characters} />
+      <CharacterList characters={characters} />
       {errors && (
         <p className={styles.error}>⚠ No se han encontrado resultados</p>
       )}
