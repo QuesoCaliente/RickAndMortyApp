@@ -4,22 +4,20 @@ export const getApiCharactersByNameStatusGender = async (
   gender: string,
   page: number
 ) => {
-  const helperStatus = name !== '' ? '&' : '?';
-  const helperGender = status !== 'all' ? '&' : '?';
-  const helperPage = gender !== 'all' ? '&' : '?';
-  const queryStatus = status !== 'all' ? `${helperStatus}status=${status}` : '';
-  const queryGender = gender !== 'all' ? `${helperGender}gender=${gender}` : '';
-  const querySearch = name !== '' ? `?name=${name}` : '';
-  const queryPage = page !== 1 ? `${helperPage}page=${page}` : '';
+  const query: {
+    [key: string]: string;
+  } = {};
+  name !== '' && (query['name'] = name);
+  status !== 'all' && (query['status'] = status);
+  gender !== 'all' && (query['gender'] = gender);
+  query['page'] = page.toString();
+
   const response = await fetch(
-    `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}${queryPage}`
+    `https://rickandmortyapi.com/api/character/?` + new URLSearchParams(query)
   );
   if (!response.ok) {
     throw new Error('No se encontro ningun personaje');
   }
-  console.log(
-    `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}${queryPage}`
-  );
   const data = await response.json();
   return data;
 };

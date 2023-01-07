@@ -20,6 +20,7 @@ export default function Home() {
     isLoading,
     hasNextPage,
     fetchNextPage,
+    error,
   } = useChracter();
 
   const position = useWindowPosition();
@@ -44,6 +45,7 @@ export default function Home() {
         {status === 'success' && <CharacterList characters={characters} />}
       </div>
       {(isFetchingNextPage || isLoading) && <Loading />}
+      {status === 'error' && <div className={styles.error}>{`${error}`}</div>}
     </main>
   );
 }
