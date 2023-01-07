@@ -1,37 +1,25 @@
-export const getApiCharacters = async (page: number) => {
-  try {
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character?page=${page}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return;
-  }
-};
-
 export const getApiCharactersByNameStatusGender = async (
   name: string,
   status: string,
-  gender: string
+  gender: string,
+  page: number
 ) => {
-  try {
-    const helperStatus = name !== '' ? '&' : '?';
-    const helperGender = status !== 'all' ? '&' : '?';
-    const queryStatus =
-      status !== 'all' ? `${helperStatus}status=${status}` : '';
-    const queryGender =
-      gender !== 'all' ? `${helperGender}gender=${gender}` : '';
-    const querySearch = name !== '' ? `?name=${name}` : '';
-    const response = await fetch(
-      `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}`
-    );
-    console.log(
-      `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}`
-    );
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    return;
+  const helperStatus = name !== '' ? '&' : '?';
+  const helperGender = status !== 'all' ? '&' : '?';
+  const helperPage = gender !== 'all' ? '&' : '?';
+  const queryStatus = status !== 'all' ? `${helperStatus}status=${status}` : '';
+  const queryGender = gender !== 'all' ? `${helperGender}gender=${gender}` : '';
+  const querySearch = name !== '' ? `?name=${name}` : '';
+  const queryPage = page !== 1 ? `${helperPage}page=${page}` : '';
+  const response = await fetch(
+    `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}${queryPage}`
+  );
+  if (!response.ok) {
+    throw new Error('No se encontro ningun personaje');
   }
+  console.log(
+    `https://rickandmortyapi.com/api/character/${querySearch}${queryStatus}${queryGender}${queryPage}`
+  );
+  const data = await response.json();
+  return data;
 };

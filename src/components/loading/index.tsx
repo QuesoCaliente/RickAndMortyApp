@@ -1,6 +1,7 @@
 import styles from './loading.module.css';
 
 export default function Loading() {
+  console.log('ESTA CARGANDO');
   return (
     <div className={styles.loading_container}>
       <img className={styles.image} src="/portal.gif" alt="loading" />

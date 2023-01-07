@@ -6,6 +6,7 @@ interface ICharacterList {
 }
 
 export default function CharacterList({ characters }: ICharacterList) {
+  console.log(characters);
   return (
     <div className={styles.grid}>
       {characters &&
