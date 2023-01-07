@@ -39,7 +39,6 @@ export default function Home() {
       <div className={styles.selects_container}>
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
         <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
-        {position}
       </div>
       <div>
         {status === 'success' && <CharacterList characters={characters} />}
