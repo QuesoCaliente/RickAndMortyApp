@@ -4,9 +4,9 @@ import Search from '@components/search';
 import Select from '@components/select';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from './const';
 import { useChracter } from '../../hooks/useCharacter';
-import { useMemo, useRef } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { useMemo, useEffect } from 'react';
 import Loading from '@components/loading';
+import useWindowPosition from '@utils/hooks/useWindowPosition';
 
 export default function Home() {
   const {
@@ -22,18 +22,13 @@ export default function Home() {
     fetchNextPage,
   } = useChracter();
 
-  const scrollableRef = useRef(null);
+  const position = useWindowPosition();
+  useEffect(() => {
+    if (position > 80 && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [position]);
 
-  const { ref } = useInView({
-    root: scrollableRef.current,
-    threshold: 0,
-    triggerOnce: false,
-    onChange: inView => {
-      if (inView && hasNextPage) {
-        fetchNextPage();
-      }
-    },
-  });
   const characters = useMemo(() => {
     return data?.pages.map(page => page.results).flat() || [];
   }, [data]);
@@ -44,11 +39,11 @@ export default function Home() {
       <div className={styles.selects_container}>
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
         <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
+        {position}
       </div>
       <div>
         {status === 'success' && <CharacterList characters={characters} />}
       </div>
-      <div ref={ref}></div>
       {(isFetchingNextPage || isLoading) && <Loading />}
     </main>
   );
