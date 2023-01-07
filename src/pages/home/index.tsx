@@ -3,10 +3,10 @@ import CharacterList from '@components/characterList';
 import Search from '@components/search';
 import Select from '@components/select';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from './const';
-import Loading from '@components/loading';
 import { useChracter } from '../../hooks/useCharacter';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { useMemo } from 'react';
+import { useMemo, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
+import Loading from '@components/loading';
 
 export default function Home() {
   const {
@@ -16,12 +16,25 @@ export default function Home() {
     status,
     refetch,
     data,
+    isFetchingNextPage,
+    isLoading,
     hasNextPage,
     fetchNextPage,
   } = useChracter();
 
+  const scrollableRef = useRef(null);
+
+  const { ref } = useInView({
+    root: scrollableRef.current,
+    threshold: 0,
+    triggerOnce: false,
+    onChange: inView => {
+      if (inView && hasNextPage) {
+        fetchNextPage();
+      }
+    },
+  });
   const characters = useMemo(() => {
-    console.log(data);
     return data?.pages.map(page => page.results).flat() || [];
   }, [data]);
 
@@ -32,15 +45,11 @@ export default function Home() {
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
         <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
       </div>
-      <InfiniteScroll
-        dataLength={characters.length}
-        hasMore={!!hasNextPage}
-        next={() => fetchNextPage()}
-        loader={<Loading />}
-        endMessage={<p className={styles.end_message}>No more characters</p>}
-      >
-        {characters && <CharacterList characters={characters} />}
-      </InfiniteScroll>
+      <div>
+        {status === 'success' && <CharacterList characters={characters} />}
+      </div>
+      <div ref={ref}></div>
+      {(isFetchingNextPage || isLoading) && <Loading />}
     </main>
   );
 }
