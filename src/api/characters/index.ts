@@ -16,7 +16,7 @@ export const getApiCharactersByNameStatusGender = async (
     `https://rickandmortyapi.com/api/character/?` + new URLSearchParams(query)
   );
   if (!response.ok) {
-    throw new Error('No se encontro ningun personaje');
+    throw new Error('No se encontro ningun personaje ');
   }
   const data = await response.json();
   return data;
