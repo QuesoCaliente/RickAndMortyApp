@@ -17,6 +17,7 @@ export default function Home() {
     refetch,
     data,
     isFetchingNextPage,
+    isRefetching,
     isLoading,
     hasNextPage,
     fetchNextPage,
@@ -44,7 +45,7 @@ export default function Home() {
       <div>
         {status === 'success' && <CharacterList characters={characters} />}
       </div>
-      {(isFetchingNextPage || isLoading) && <Loading />}
+      {(isFetchingNextPage || isLoading || isRefetching) && <Loading />}
       {status === 'error' && <div className={styles.error}>{`${error}`}</div>}
     </main>
   );
