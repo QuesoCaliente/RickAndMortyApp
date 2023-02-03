@@ -12,6 +12,7 @@
   flex-direction: row;
   gap: 20px;
   justify-content: flex-start;
+  align-items: center;
 }
 .error {
   color: #cbedd5;

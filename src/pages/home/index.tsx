@@ -4,9 +4,10 @@ import Search from '@components/search';
 import Select from '@components/select';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from './const';
 import { useChracter } from '../../hooks/useCharacter';
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useState } from 'react';
 import Loading from '@components/loading';
 import useWindowPosition from '@utils/hooks/useWindowPosition';
+import CardType from '@components/cardType';
 
 export default function Home() {
   const {
@@ -24,16 +25,11 @@ export default function Home() {
     error,
   } = useChracter();
 
-  const position = useWindowPosition();
-  useEffect(() => {
-    if (position > 80 && hasNextPage) {
-      fetchNextPage();
-    }
-  }, [position]);
-
   const characters = useMemo(() => {
     return data?.pages.map(page => page.results).flat() || [];
   }, [data]);
+
+  const [type, setType] = useState('grid');
 
   return (
     <main className={styles.container}>
@@ -41,9 +37,17 @@ export default function Home() {
       <div className={styles.selects_container}>
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
         <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
+        <CardType onChange={value => setType(value)} />
       </div>
       <div>
-        {status === 'success' && <CharacterList characters={characters} />}
+        {status === 'success' && (
+          <CharacterList
+            hasNextPage={hasNextPage}
+            nextPage={fetchNextPage}
+            type={type as 'table' | 'grid' | 'left'}
+            characters={characters}
+          />
+        )}
       </div>
       {(isFetchingNextPage || isLoading || isRefetching) && <Loading />}
       {status === 'error' && <div className={styles.error}>{`${error}`}</div>}

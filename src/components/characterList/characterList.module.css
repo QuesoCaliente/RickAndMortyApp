@@ -5,3 +5,22 @@
   margin: 1rem;
   place-items: center;
 }
+
+.left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f1f5f9;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+}
+
+.left > * {
+  margin: 0;
+  padding: 0;
+  min-width: 300px;
+}

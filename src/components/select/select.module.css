@@ -9,6 +9,7 @@
   padding-block-start: 0.5rem;
   padding-block-end: 0.5rem;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
 }
 
 @media screen and (max-width: 640px) {

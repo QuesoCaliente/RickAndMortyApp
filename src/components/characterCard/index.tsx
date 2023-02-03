@@ -1,7 +1,7 @@
 import TagAlive from '@components/tagAlive';
 import styles from './characterCard.module.css';
 
-interface ICard {
+export interface ICard {
   image: string;
   name: string;
   gender: 'Female' | 'Male' | 'Genderless' | 'unknown';

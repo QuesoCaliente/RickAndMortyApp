@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #334155;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background:  #f1f5f9;
+}
+
+.container > * {
+    background-color: #f1f5f9;
+    padding: 0.3rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    /* box-shadow: 0 0 0 1px #d1d5db; */
+}
+
+.container > .active {
+    background-color: #62b6b7;
+    color: #f1f5f9;
+}
+
+
+
+.active {
+    background-color: #62b6b7;
+    color: #f1f5f9;
+}
