@@ -12,6 +12,17 @@ import {
   InfiniteQueryObserverResult,
 } from '@tanstack/react-query';
 import useWindowPosition from '@utils/hooks/useWindowPosition';
+import {
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+  Table as TableChakra,
+} from '@chakra-ui/react';
 
 const columnHelper = createColumnHelper<ICard>();
 
@@ -65,53 +76,53 @@ export default function Table({
   }, [scrollPosition]);
 
   return (
-    <div className="p-2">
-      <table className={styles.table}>
-        <thead>
+    <TableContainer>
+      <TableChakra variant="striped">
+        <TableCaption>Imperial to metric conversion factors</TableCaption>
+        <Thead>
           {table.getHeaderGroups().map(headerGroup => (
-            <tr key={headerGroup.id}>
+            <Tr key={headerGroup.id}>
               {headerGroup.headers.map(header => (
-                <th key={header.id}>
+                <Th key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
                         header.getContext()
                       )}
-                </th>
+                </Th>
               ))}
-            </tr>
+            </Tr>
           ))}
-        </thead>
-        <tbody>
+        </Thead>
+        <Tbody>
           {table.getRowModel().rows.map(row => (
-            <tr key={row.id}>
+            <Tr key={row.id}>
               {row.getVisibleCells().map(cell => (
-                <td key={cell.id}>
+                <Td key={cell.id}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
+                </Td>
               ))}
-            </tr>
+            </Tr>
           ))}
-        </tbody>
-        <tfoot>
+        </Tbody>
+        <Tfoot>
           {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
+            <Tr key={footerGroup.id}>
               {footerGroup.headers.map(header => (
-                <th key={header.id}>
+                <Th key={header.id}>
                   {header.isPlaceholder
                     ? null
                     : flexRender(
                         header.column.columnDef.footer,
                         header.getContext()
                       )}
-                </th>
+                </Th>
               ))}
-            </tr>
+            </Tr>
           ))}
-        </tfoot>
-      </table>
-      <div className="h-4" />
-    </div>
+        </Tfoot>
+      </TableChakra>
+    </TableContainer>
   );
 }

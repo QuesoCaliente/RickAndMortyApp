@@ -20,5 +20,5 @@ body {
   padding: 0;
   font-family: var(--font-family);
   font-size: var(--font-size);
-  background-color: var(--colors-background);
+  background-color: var(--colors-background) !important;
 }

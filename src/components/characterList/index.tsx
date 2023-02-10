@@ -116,11 +116,12 @@ const Left = ({
 
   return (
     <>
-      <span>{scrollPercentaje}</span>
       <div ref={scrolleableElementRef} className={styles.left}>
         {characters &&
           characters.map(character => {
-            return <CharacterCard key={character.id} {...character} />;
+            return (
+              <CharacterCard isHorizontal key={character.id} {...character} />
+            );
           })}
       </div>
     </>

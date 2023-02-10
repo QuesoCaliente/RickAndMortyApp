@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './search.module.css';
+import { Button, Input, Stack } from '@chakra-ui/react';
 
 interface ISearch {
   onSearch: (value: string) => void;
@@ -19,17 +20,34 @@ export default function Search({ onSearch, onClick }: ISearch) {
   };
 
   return (
-    <form className={styles.search_container} onSubmit={handleSubmit}>
-      <input
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        type="text"
-        placeholder="nombre del personaje..."
-        className={styles.search}
-      />
-      <button type="submit" className={styles.button}>
-        Buscar
-      </button>
+    <form onSubmit={handleSubmit}>
+      <Stack
+        bg={'whiteAlpha.500'}
+        w={'100%'}
+        p={3}
+        spacing={4}
+        boxShadow={'lg'}
+        direction={['column', 'column', 'column', 'row']}
+        alignItems={'center'}
+        justifyContent={'center'}
+        rounded={'xl'}
+      >
+        <Input
+          bg="none"
+          border="none"
+          value={value}
+          onChange={e => setValue(e.target.value)}
+          type="text"
+          placeholder="nombre del personaje..."
+        />
+        <Button
+          width={['100%', '100%', 'initial', 'initial']}
+          type="submit"
+          colorScheme={'teal'}
+        >
+          Buscar
+        </Button>
+      </Stack>
     </form>
   );
 }

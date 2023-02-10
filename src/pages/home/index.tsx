@@ -8,6 +8,14 @@ import { useMemo, useEffect, useState } from 'react';
 import Loading from '@components/loading';
 import useWindowPosition from '@utils/hooks/useWindowPosition';
 import CardType from '@components/cardType';
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Stack,
+} from '@chakra-ui/react';
 
 export default function Home() {
   const {
@@ -34,12 +42,12 @@ export default function Home() {
   return (
     <main className={styles.container}>
       <Search onClick={() => refetch()} onSearch={value => setSearch(value)} />
-      <div className={styles.selects_container}>
+      <Stack direction={['column', 'column', 'row', 'row']}>
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
         <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
         <CardType onChange={value => setType(value)} />
-      </div>
-      <div>
+      </Stack>
+      <Box>
         {status === 'success' && (
           <CharacterList
             hasNextPage={hasNextPage}
@@ -48,9 +56,15 @@ export default function Home() {
             characters={characters}
           />
         )}
-      </div>
+      </Box>
       {(isFetchingNextPage || isLoading || isRefetching) && <Loading />}
-      {status === 'error' && <div className={styles.error}>{`${error}`}</div>}
+      {status === 'error' && (
+        <Alert status="error">
+          <AlertIcon />
+          <AlertTitle>Ha ocurrido un error</AlertTitle>
+          <AlertDescription>{`${error}`}</AlertDescription>
+        </Alert>
+      )}
     </main>
   );
 }

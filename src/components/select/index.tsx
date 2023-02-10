@@ -1,4 +1,4 @@
-import styles from './select.module.css';
+import { Select as SelectChakra } from '@chakra-ui/react';
 
 interface ISelect {
   options: { label: string; value: string }[];
@@ -7,7 +7,11 @@ interface ISelect {
 
 export default function Select({ options, onChange }: ISelect) {
   return (
-    <select className={styles.select} onChange={e => onChange(e.target.value)}>
+    <SelectChakra
+      variant="outline"
+      bg="whiteAlpha.400"
+      onChange={e => onChange(e.target.value)}
+    >
       {options.map(option => {
         return (
           <option key={option.value} value={option.value}>
@@ -15,6 +19,6 @@ export default function Select({ options, onChange }: ISelect) {
           </option>
         );
       })}
-    </select>
+    </SelectChakra>
   );
 }
