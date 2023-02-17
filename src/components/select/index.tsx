@@ -9,7 +9,7 @@ export default function Select({ options, onChange }: ISelect) {
   return (
     <SelectChakra
       variant="outline"
-      bg="whiteAlpha.400"
+      bg="white"
       onChange={e => onChange(e.target.value)}
     >
       {options.map(option => {

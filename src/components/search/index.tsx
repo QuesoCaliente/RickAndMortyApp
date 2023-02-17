@@ -22,7 +22,7 @@ export default function Search({ onSearch, onClick }: ISearch) {
   return (
     <form onSubmit={handleSubmit}>
       <Stack
-        bg={'whiteAlpha.500'}
+        bg={'white'}
         w={'100%'}
         p={3}
         spacing={4}
