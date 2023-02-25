@@ -1,12 +1,10 @@
-import styles from './home.module.css';
 import CharacterList from '@components/characterList';
 import Search from '@components/search';
 import Select from '@components/select';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from './const';
 import { useChracter } from '../../hooks/useCharacter';
-import { useMemo, useEffect, useState } from 'react';
+import { useMemo, useState } from 'react';
 import Loading from '@components/loading';
-import useWindowPosition from '@utils/hooks/useWindowPosition';
 import CardType from '@components/cardType';
 import {
   Alert,
@@ -14,6 +12,7 @@ import {
   AlertIcon,
   AlertTitle,
   Box,
+  Flex,
   Stack,
 } from '@chakra-ui/react';
 
@@ -40,7 +39,14 @@ export default function Home() {
   const [type, setType] = useState('grid');
 
   return (
-    <main className={styles.container}>
+    <Flex
+      as="main"
+      maxW="container.lg"
+      mx="auto"
+      pt="50px"
+      flexDirection="column"
+      gap="20px"
+    >
       <Search onClick={() => refetch()} onSearch={value => setSearch(value)} />
       <Stack direction={['column', 'column', 'row', 'row']}>
         <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
@@ -65,6 +71,6 @@ export default function Home() {
           <AlertDescription>{`${error}`}</AlertDescription>
         </Alert>
       )}
-    </main>
+    </Flex>
   );
 }

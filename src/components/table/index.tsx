@@ -6,7 +6,6 @@ import {
   useReactTable,
 } from '@tanstack/react-table';
 import { ICard } from '@components/characterCard';
-import styles from './table.module.css';
 import {
   FetchNextPageOptions,
   InfiniteQueryObserverResult,

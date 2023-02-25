@@ -11,25 +11,25 @@ interface TagGender {
 
 const genderIcon = {
   Female: {
-    icon: <BsGenderFemale size={20} color="#F9A8D4" />,
+    icon: <BsGenderFemale title="female-icon" size={20} color="#F9A8D4" />,
     bg: 'pink.100',
     secondaryBg: 'pink.200',
     color: 'pink.600',
   },
   Male: {
-    icon: <BsGenderMale size={20} color="#93C5FD" />,
+    icon: <BsGenderMale title="male-icon" size={20} color="#93C5FD" />,
     bg: 'blue.100',
     secondaryBg: 'blue.200',
     color: 'blue.600',
   },
   Genderless: {
-    icon: <BsGenderMale size={20} color="#93C5FD" />,
+    icon: <BsGenderMale title="genderless-icon" size={20} color="#93C5FD" />,
     bg: 'blue.100',
     secondaryBg: 'blue.200',
     color: 'blue.600',
   },
   unknown: {
-    icon: <BsGenderMale size={20} color="#93C5FD" />,
+    icon: <BsGenderMale title="unknown-icon" size={20} color="#93C5FD" />,
     bg: 'blue.100',
     secondaryBg: 'blue.200',
     color: 'blue.600',

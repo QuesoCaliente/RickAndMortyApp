@@ -3,8 +3,8 @@ import {
   BsFillArrowRightSquareFill,
   BsFillArrowDownSquareFill,
 } from 'react-icons/bs';
-import styles from './cardType.module.css';
 import { useEffect, useState } from 'react';
+import { Button, Flex } from '@chakra-ui/react';
 
 type CardTypeProps = {
   onChange?: (value: 'left' | 'table' | 'grid') => void;
@@ -19,26 +19,48 @@ export default function CardType({ onChange }: CardTypeProps) {
     onChange && onChange(active);
   }, [active]);
 
+  const activeStyle = {
+    backgroundColor: '#62b6b7',
+    color: '#f1f5f9',
+  };
+
   return (
-    <div className={styles.container}>
-      <button
+    <Flex
+      gap="1rem"
+      alignItems="center"
+      justifyContent={['center', 'center', 'flex-end', 'flex-end']}
+      color="#334155"
+      p="0.5rem"
+      borderRadius="0.5rem"
+      bgColor="#f1f5f9"
+    >
+      <Button
+        title="tablebutton"
+        color="#334155"
+        colorScheme={active === 'table' ? 'teal' : 'gray'}
         onClick={() => setActive('table')}
-        className={active === 'table' ? styles.active : undefined}
+        style={active === 'table' ? activeStyle : undefined}
       >
         <FaTable size={20} />
-      </button>
-      <button
+      </Button>
+      <Button
+        title="leftbutton"
+        colorScheme={active === 'left' ? 'teal' : 'gray'}
+        color="#334155"
         onClick={() => setActive('left')}
-        className={active === 'left' ? styles.active : undefined}
+        style={active === 'left' ? activeStyle : undefined}
       >
         <BsFillArrowRightSquareFill size={20} />
-      </button>
-      <button
+      </Button>
+      <Button
+        title="gridbutton"
+        colorScheme={active === 'grid' ? 'teal' : 'gray'}
+        color="#334155"
         onClick={() => setActive('grid')}
-        className={active === 'grid' ? styles.active : undefined}
+        style={active === 'grid' ? activeStyle : undefined}
       >
         <BsFillArrowDownSquareFill size={20} />
-      </button>
-    </div>
+      </Button>
+    </Flex>
   );
 }

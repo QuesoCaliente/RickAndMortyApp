@@ -1,4 +1,5 @@
 import CharacterCard from '@components/characterCard';
+import { Flex, Grid as GridChakra, GridItem } from '@chakra-ui/react';
 import Table from '@components/table';
 import {
   FetchNextPageOptions,
@@ -6,7 +7,6 @@ import {
 } from '@tanstack/react-query';
 import useWindowPosition from '@utils/hooks/useWindowPosition';
 import { useEffect, useRef, useState } from 'react';
-import styles from './characterList.module.css';
 
 interface ICharacterList {
   characters: any[];
@@ -23,7 +23,6 @@ export default function CharacterList({
   hasNextPage,
   nextPage,
 }: ICharacterList) {
-  console.log(characters);
   if (type === 'grid') {
     return (
       <Grid
@@ -70,12 +69,21 @@ const Grid = ({
     }
   }, [scrollPosition]);
   return (
-    <div className={styles.grid}>
+    <GridChakra
+      templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
+      gap="1rem"
+      margin="1rem"
+      placeItems="center"
+    >
       {characters &&
         characters.map(character => {
-          return <CharacterCard key={character.id} {...character} />;
+          return (
+            <GridItem key={character.id}>
+              <CharacterCard {...character} />
+            </GridItem>
+          );
         })}
-    </div>
+    </GridChakra>
   );
 };
 
@@ -116,14 +124,25 @@ const Left = ({
 
   return (
     <>
-      <div ref={scrolleableElementRef} className={styles.left}>
+      <Flex
+        ref={scrolleableElementRef}
+        direction="row"
+        alignItems="center"
+        justifyContent="flex-start"
+        gap="1rem"
+        padding="1rem"
+        borderRadius="0.5rem"
+        bgColor="#f1f5f9"
+        boxShadow={'md'}
+        overflowX="auto"
+      >
         {characters &&
           characters.map(character => {
             return (
               <CharacterCard isHorizontal key={character.id} {...character} />
             );
           })}
-      </div>
+      </Flex>
     </>
   );
 };

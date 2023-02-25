@@ -1,0 +1,206 @@
+// Vitest Snapshot v1
+
+exports[`Home > should render correctly 1`] = `
+<div>
+  <main
+    class="css-1dllb9e"
+  >
+    <form>
+      <div
+        class="chakra-stack css-12ag24y"
+      >
+        <input
+          class="chakra-input css-18kwlsz"
+          placeholder="nombre del personaje..."
+          type="text"
+          value=""
+        />
+        <button
+          class="chakra-button css-17uv28e"
+          type="submit"
+        >
+          Buscar
+        </button>
+      </div>
+    </form>
+    <div
+      class="chakra-stack css-1eu6exb"
+    >
+      <div
+        class="chakra-select__wrapper css-42b2qy"
+      >
+        <select
+          class="chakra-select css-otbowv"
+        >
+          <option
+            value="all"
+          >
+            Seleccionar genero
+          </option>
+          <option
+            value="female"
+          >
+            Femenino
+          </option>
+          <option
+            value="male"
+          >
+            Masculino
+          </option>
+          <option
+            value="genderless"
+          >
+            Sin genero
+          </option>
+          <option
+            value="unknown"
+          >
+            Desconocido
+          </option>
+        </select>
+        <div
+          class="chakra-select__icon-wrapper css-162mkon"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-select__icon"
+            focusable="false"
+            role="presentation"
+            style="width: 1em; height: 1em; color: currentColor;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="chakra-select__wrapper css-42b2qy"
+      >
+        <select
+          class="chakra-select css-otbowv"
+        >
+          <option
+            value="all"
+          >
+            Seleccionar estado
+          </option>
+          <option
+            value="alive"
+          >
+            Vivos
+          </option>
+          <option
+            value="dead"
+          >
+            Muertos
+          </option>
+          <option
+            value="unknown"
+          >
+            Desconocido
+          </option>
+        </select>
+        <div
+          class="chakra-select__icon-wrapper css-162mkon"
+        >
+          <svg
+            aria-hidden="true"
+            class="chakra-select__icon"
+            focusable="false"
+            role="presentation"
+            style="width: 1em; height: 1em; color: currentColor;"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              fill="currentColor"
+            />
+          </svg>
+        </div>
+      </div>
+      <div
+        class="css-hksaa0"
+      >
+        <button
+          class="chakra-button css-12s2bcn"
+          title="tablebutton"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="20"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"
+            />
+          </svg>
+        </button>
+        <button
+          class="chakra-button css-12s2bcn"
+          title="leftbutton"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="20"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12zm4.5-6.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5a.5.5 0 0 1 0-1z"
+            />
+          </svg>
+        </button>
+        <button
+          class="chakra-button css-12s2bcn"
+          style="background-color: rgb(98, 182, 183); color: rgb(241, 245, 249);"
+          title="gridbutton"
+          type="button"
+        >
+          <svg
+            fill="currentColor"
+            height="20"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            width="20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="css-0"
+    />
+    <div
+      class="css-9uv8dg"
+    >
+      <img
+        alt="loading"
+        class="chakra-image css-1mf35eq"
+        src="/portal.gif"
+      />
+      <p
+        class="chakra-text css-170iz45"
+      >
+        Cargando...
+      </p>
+    </div>
+  </main>
+</div>
+`;
