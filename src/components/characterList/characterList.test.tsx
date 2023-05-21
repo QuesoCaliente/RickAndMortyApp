@@ -1,5 +1,4 @@
-import { Box } from '@chakra-ui/react';
-import { fireEvent, render } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { characters } from '@utils/testingData';
 import { it, describe, expect, vi } from 'vitest';
 import CharacterList from '.';
