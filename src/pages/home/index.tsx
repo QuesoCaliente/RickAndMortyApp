@@ -3,7 +3,7 @@ import Search from '@components/search';
 import Select from '@components/select';
 import { GENDER_OPTIONS, STATUS_OPTIONS } from './const';
 import { useChracter } from '../../hooks/useCharacter';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Loading from '@components/loading';
 import CardType from '@components/cardType';
 import {
@@ -15,6 +15,7 @@ import {
   Flex,
   Stack,
 } from '@chakra-ui/react';
+import { useTour } from '@reactour/tour';
 
 export default function Home() {
   const {
@@ -38,6 +39,12 @@ export default function Home() {
 
   const [type, setType] = useState('grid');
 
+  const { setIsOpen } = useTour();
+
+  useEffect(() => {
+    setIsOpen(true);
+  }, []);
+
   return (
     <Flex
       as="main"
@@ -49,8 +56,16 @@ export default function Home() {
     >
       <Search onClick={() => refetch()} onSearch={value => setSearch(value)} />
       <Stack direction={['column', 'column', 'row', 'row']}>
-        <Select onChange={value => setGender(value)} options={STATUS_OPTIONS} />
-        <Select onChange={value => setStatus(value)} options={GENDER_OPTIONS} />
+        <Select
+          className="filtrar_personaje_estado"
+          onChange={value => setGender(value)}
+          options={STATUS_OPTIONS}
+        />
+        <Select
+          className="filtrar_personaje_genero"
+          onChange={value => setStatus(value)}
+          options={GENDER_OPTIONS}
+        />
         <CardType onChange={value => setType(value)} />
       </Stack>
       <Box>

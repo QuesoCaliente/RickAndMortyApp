@@ -20,7 +20,7 @@ export default function Search({ onSearch, onClick }: ISearch) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="filtrar_personaje_texto" onSubmit={handleSubmit}>
       <Stack
         bg={'white'}
         w={'100%'}

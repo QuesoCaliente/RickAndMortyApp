@@ -26,6 +26,7 @@ export default function CardType({ onChange }: CardTypeProps) {
 
   return (
     <Flex
+      className="cambiar_modo_vista"
       gap="1rem"
       alignItems="center"
       justifyContent={['center', 'center', 'flex-end', 'flex-end']}
